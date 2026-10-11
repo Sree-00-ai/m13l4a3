@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Math Object</title>
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f4ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: royalblue;
+        }
+
+        #result {
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 17px;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>JavaScript Math Object</h1>
+
+        <p>Enter a number:</p>
+
+        <input type="number" id="number" placeholder="Enter a number">
+
+        <br>
+
+        <button onclick="roundNumber()">Round</button>
+        <button onclick="ceilNumber()">Ceil</button>
+        <button onclick="floorNumber()">Floor</button>
+        <button onclick="squareRoot()">Square Root</button>
+        <button onclick="absoluteNumber()">Absolute</button>
+        <button onclick="powerNumber()">Square</button>
+        <button onclick="randomNumber()">Random Number</button>
+        <button onclick="showConstants()">Math Constants</button>
+
+        <div id="result">Your result will appear here.</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function getNumber() {
+            let value = document.getElementById("number").value;
+
+            if (value.trim() === "") {
+                document.getElementById("result").textContent =
+                    "Please enter a number!";
+                return null;
+            }
+
+            return Number(value);
+        }
+
+        function roundNumber() {
+            let num = getNumber();
+            if (num === null) return;
+
+            document.getElementById("result").textContent =
+                "Math.round(" + num + ") = " + Math.round(num);
+        }
+
+        function ceilNumber() {
+            let num = getNumber();
+            if (num === null) return;
+
+            document.getElementById("result").textContent =
+                "Math.ceil(" + num + ") = " + Math.ceil(num);
+        }
+
+        function floorNumber() {
+            let num = getNumber();
+            if (num === null) return;
+
+            document.getElementById("result").textContent =
+                "Math.floor(" + num + ") = " + Math.floor(num);
+        }
+
+        function squareRoot() {
+            let num = getNumber();
+            if (num === null) return;
+
+            if (num < 0) {
+                document.getElementById("result").textContent =
+                    "Enter a non-negative number!";
+                return;
+            }
+
+            document.getElementById("result").textContent =
+                "Math.sqrt(" + num + ") = " + Math.sqrt(num);
+        }
+
+        function absoluteNumber() {
+            let num = getNumber();
+            if (num === null) return;
+
+            document.getElementById("result").textContent =
+                "Math.abs(" + num + ") = " + Math.abs(num);
+        }
+
+        function powerNumber() {
+            let num = getNumber();
+            if (num === null) return;
+
+            document.getElementById("result").textContent =
+                "Math.pow(" + num + ", 2) = " + Math.pow(num, 2);
+        }
+
+        function randomNumber() {
+            let result = Math.floor(Math.random() * 100) + 1;
+
+            document.getElementById("result").textContent =
+                "Random number between 1 and 100: " + result;
+        }
+
+        function showConstants() {
+            document.getElementById("result").innerHTML =
+                "Math.PI = " + Math.PI + "<br>" +
+                "Math.E = " + Math.E;
+        }
+    </script>
+
+</body>
+
+</html>
